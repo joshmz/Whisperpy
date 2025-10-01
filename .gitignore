@@ -1,0 +1,5 @@
+/.cache
+/.env
+/main copy.py
+/scrapeSongs.py
+/__pycache__
