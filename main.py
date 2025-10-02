@@ -2,12 +2,13 @@ import retriveveAllSongs, makeHints, download
 import discord
 from discord.ext import commands
 from dotenv import load_dotenv
+from difflib import SequenceMatcher
 import random
 import os
 import re
 import asyncio
-from difflib import SequenceMatcher
 import glob
+
 
 load_dotenv()
 

@@ -1,6 +1,7 @@
 from pydub import AudioSegment
 
-# Crop mp3 to grab the middle of song
+# Crop mp3 to grab the middle of song if longer than 3 min
+# Attempts to remove intro from youtube video
 def crop():
     audio = AudioSegment.from_mp3("song.mp3")
     duration = len(audio)/1000
