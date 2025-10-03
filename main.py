@@ -14,7 +14,7 @@ load_dotenv()
 
 # Chooses a random song within your spotify playlist
 def getRandSong(songs):
-    randChoice = random.randint(0,len(songs))
+    randChoice = random.randint(0,len(songs)-1)
     return randChoice
 
 # Game logic
