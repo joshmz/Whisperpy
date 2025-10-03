@@ -2,25 +2,18 @@ from yt_dlp import YoutubeDL
 import requests
 from dotenv import load_dotenv
 import os
+from youtubesearchpython import VideosSearch
 
 load_dotenv()
 
+# Get youtube url
 def scrape(song):
-    urlList = []
-    params: dict = {
-        "api_key": os.getenv('SERPAPI_API'),
-        "engine": "youtube",
-        "search_query": song
-    }
+    videos_search = VideosSearch(song, limit=1)
+    result = videos_search.result()
 
-    search = requests.get("https://serpapi.com/search", params=params)
-    response = search.json()
+    video_url = result["result"][0]["link"] # type: ignore
 
-    for video in response.get("video_results", []):
-        urlList.append(video.get('link'))
-
-    url = urlList[0] if urlList else None
-    return url
+    return video_url
 
 def download(url):
     ydl_opts = {
@@ -40,5 +33,5 @@ def download(url):
         ydl.download([url])
 
 
-
+scrape("Kanye Power")
 
